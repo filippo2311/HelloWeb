@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Pagina di registrazione</title>
+</head>
+<body>
+<form method="get" action="../HelloWebServlet">
+	<label for="firstname">Nome:</label><input type="text" id="firstname" name="firstname"><br>
+	<label for="lastname">Cognome:</label><input type="text" id="lastname" name="lastname"><br>
+	<label for="backend">Programmatore backend</label><input type="checkbox" id="backend" name="backend"><br>
+	<select id="favoritelanguage" name="favoritelanguage">
+		<option value="none">linguaggio preferito</option>
+		<option value="jv">java</option>
+		<option value="py">python</option>
+		<option value="cpp">c++</option>
+	</select>
+	<input type="submit" value="invia dati">
+</form>
+</body>
+</html>
