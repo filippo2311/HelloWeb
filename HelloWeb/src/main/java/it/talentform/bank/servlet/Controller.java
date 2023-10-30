@@ -11,6 +11,7 @@ import java.io.IOException;
 import it.talentform.bank.actions.Action;
 import it.talentform.bank.actions.AddClientAction;
 import it.talentform.bank.actions.NoComandAction;
+import it.talentform.bank.actions.SaveClientAction;
 import it.talentform.bank.actions.ShowClientsAction;
 import it.talentform.bank.model.exceptions.DataException;
 
@@ -32,6 +33,9 @@ public class Controller extends HttpServlet {
 			break;
 		case "addclient":
 			command = new AddClientAction();
+			break;
+		case "saveclient":
+			command = new SaveClientAction();
 			break;
 		default:
 			command = new NoComandAction();

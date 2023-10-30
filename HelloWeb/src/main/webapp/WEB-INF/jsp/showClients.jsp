@@ -1,8 +1,7 @@
 <%@page import="java.util.Collection"%>
 <%@page import="it.talentform.bank.model.Client"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +15,11 @@
 </head>
 
 <body>
-
+	
+	<c:forEach var="j" begin="1" end="3">  
+    	Item <c:out value="${j}"/><p>  
+	</c:forEach>
+	
 	<%
 		Collection<Client> clients = (Collection<Client>) request.getAttribute("ALL_CLIENTS");
 		if (clients.isEmpty()){
@@ -57,6 +60,11 @@
 		2. Questa pagina mostra solo i nomi dei clienti senza formatazione, modificarla in modo che mostri 
 			invece una tabella stilizzata con CSS che mostri i dati dei clienti (tutti)
 		3. Andarsi a studiare una presentazione PowerPoint chiamate "Servlet.ppv" e "JSP.ppv" su discord
+	 --%>
+	 
+	 <%-- 
+	 	Modificare questa pagina in modo che crei la tabella non usando lo scriplet ma la tag JSTL c:forEach
+		Documentazione: https://jakarta.ee/specifications/tags/3.0/tagdocs/c/tld-summary.html
 	 --%>
 	 
 	 <br><br><br><a class=btn href="index.jsp"><--- Torna al menù principale</a>

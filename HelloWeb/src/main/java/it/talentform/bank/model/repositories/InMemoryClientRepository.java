@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class InMemoryClientRepository implements ClientRepository {
     private static HashMap<Long,Client> clientMap = new HashMap<>();
     //private static ArrayList<Client> clientList = new ArrayList<>();
-    private static long nexId = 3;
+    private static long nexId = 7;
     static {
     	Client c1 = new Client("Mario", "Rossi", LocalDate.now(), Sex.MALE, 100, 1000);
     	Client c2 = new Client("Giovanni","Giovanna",LocalDate.now(), Sex.MALE,150, 11500);

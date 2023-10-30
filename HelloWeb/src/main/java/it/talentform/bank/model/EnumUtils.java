@@ -20,7 +20,7 @@ public class EnumUtils {
             case MALE:
                 return "M";
             case NON_BINARY:
-                return  "N";
+                return "N";
             default:
                 throw new IllegalArgumentException("valore non previsto");
         }
