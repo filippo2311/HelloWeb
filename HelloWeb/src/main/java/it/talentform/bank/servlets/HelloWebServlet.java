@@ -1,4 +1,4 @@
-package it.talentform.helloweb.servlets;
+package it.talentform.bank.servlets;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
