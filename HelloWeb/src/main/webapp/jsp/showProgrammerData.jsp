@@ -9,7 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>Hello World</p>
+
+<%-- 	<p>Hello World</p>
 	// pw.println("<p>Hello World</p>");
 	<%= LocalDateTime.now() %> //expression
 	// pw.println(LocalDateTime.now());
@@ -20,6 +21,14 @@
 	for (int i = 0; i<10; i++){ //scriptlet
 		out.println(i+"<br>");
 	}
-	%>
+	%> --%>
+	
+
+
+	<h2>Elenco clienti</h2>
+	
+
+	
+	
 </body>
 </html>

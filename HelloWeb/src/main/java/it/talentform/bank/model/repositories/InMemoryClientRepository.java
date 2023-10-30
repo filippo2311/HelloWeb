@@ -5,6 +5,7 @@ import it.talentform.bank.model.Sex;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class InMemoryClientRepository implements ClientRepository {
@@ -14,12 +15,24 @@ public class InMemoryClientRepository implements ClientRepository {
     static {
     	Client c1 = new Client("Mario", "Rossi", LocalDate.now(), Sex.MALE, 100, 1000);
     	Client c2 = new Client("Giovanni","Giovanna",LocalDate.now(), Sex.MALE,150, 11500);
+    	Client c3 = new Client("Giovanna", "Giovanni", LocalDate.now(), Sex.FEMALE, 500, 2000);
+    	Client c4 = new Client("Marina","Marino",LocalDate.now(), Sex.FEMALE,1150, 11500);
+    	Client c5 = new Client("Carlo", "Carlino", LocalDate.now(), Sex.MALE, 1000, 10000);
+    	Client c6 = new Client("Antonino","Antonuccio",LocalDate.now(), Sex.MALE,1500, 15000);
     	
     	c1.setId(1);
     	c2.setId(2);
+    	c3.setId(3);
+    	c4.setId(4);
+    	c5.setId(5);
+    	c6.setId(6);
     	
     	clientMap.put(c1.getId(),c1);
     	clientMap.put(c2.getId(),c2);
+    	clientMap.put(c3.getId(),c3);
+    	clientMap.put(c4.getId(),c4);
+    	clientMap.put(c5.getId(),c5);
+    	clientMap.put(c6.getId(),c6);
     }
 
    /* public boolean deleteById0(long id){
@@ -61,7 +74,7 @@ public class InMemoryClientRepository implements ClientRepository {
     }
 
     @Override
-    public ArrayList<Client> getAll(){
+    public Collection<Client> getAll(){
         return new ArrayList<>(clientMap.values());
     }
     @Override
@@ -73,7 +86,7 @@ public class InMemoryClientRepository implements ClientRepository {
     }
 
     @Override
-    public ArrayList<Client> searchByNameLike(String part){
+    public Collection<Client> searchByNameLike(String part){
         ArrayList<Client> users = new ArrayList<>();
         for (Client c : clientMap.values()){
             if (c.containsInName(part)){

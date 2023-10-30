@@ -14,14 +14,15 @@ public class ClientService {
    // private ClientRepository clientRepo = new TextFileClientRepository("clientdata.csv");
 	private ClientRepository clientRepo = new InMemoryClientRepository();
     public Collection<Client> getAllClients() throws DataException { //Iterable riporta ogni tipo di lista
-        return clientRepo.getAll();
+    	var clients = clientRepo.getAll();
+        return clients;
     }
 
     public long saveClient(Client c) throws DataException {
         return clientRepo.add(c);
     }
 
-    public ArrayList<Client> searchClientsByNameLike(String part) throws DataException {
+    public Collection<Client> searchClientsByNameLike(String part) throws DataException {
         return clientRepo.searchByNameLike(part);
     }
 
