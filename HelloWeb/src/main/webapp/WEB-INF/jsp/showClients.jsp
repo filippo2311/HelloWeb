@@ -2,6 +2,8 @@
 <%@page import="it.talentform.bank.model.Client"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,21 +17,15 @@
 </head>
 
 <body>
-	
-	<c:forEach var="j" begin="1" end="3">  
-    	Item <c:out value="${j}"/><p>  
-	</c:forEach>
-	
-	<%
-		Collection<Client> clients = (Collection<Client>) request.getAttribute("ALL_CLIENTS");
-		if (clients.isEmpty()){
-			out.println("<h1>Non ci sono clienti registrati</h1>");
-		}
-		else { 
-	%>
+
+	<c:choose>
+		<c:when test="${empty ALL_CLIENTS}">
+			<h1>Non ci sono clienti registrati</h1>
+		</c:when>
+		<c:otherwise>
 			<h1 class=btn>LISTA CLIENTI</h1>
-			
 			<table align="center">
+				<thead>
 				<tr>
 					<th> ID </th>
 					<th> NOME </th>
@@ -39,21 +35,54 @@
 					<th> SCOPERTO<br>COMPLESSIVO </th>
 					<th> SCOPERTO<br>UNITARIO </th>
 				</tr>
-		
-			<% for (Client c: clients){ %>
-			
-				<tr>
-					<td><%= c.getId() %></td>
-					<td><%= c.getFirstname() %></td>
-					<td><%= c.getLastname() %></td>
-					<td><%= c.getSex() %></td>
-					<td><%= c.getDateOfBirth() %></td>
-					<td><%= String.format("%,.2f", c.getDeficit()) %></td>
-					<td><%= String.format("%,.2f", c.getMaxTotalDeficit()) %></td>
-				</tr>				
-			<%}%>
-		</table>
-		<%}%>
+				</thead>
+				<tbody>
+				<%--
+					Per capire questo codice è necessario innanzitutto capire cosa
+					sia un bean.
+					E' definita bean una classe che ha gettere e setter per tutte le
+					proprietà ed un costruttore senza parametri.
+					
+					Molti framework usano questa definizione per ottenere i nomi delle
+					variabili ed usarlipre leggere/assegnare valori.
+					
+					In pratica, quello che questi framework fanno è prendere il nome
+					della proprietà, rendere maiuscola la prima lettera ed aggiungerci
+					un get davanti.
+					
+					In pratica, quando leggete ${client.id}, quello che fa JSP è
+					cercare la funzine client.getId() e chiamarla.
+					 
+				--%>
+					<c:forEach items="${ALL_CLIENTS}" var="client">
+						<tr>
+							<td>${client.id} </td>
+							<td>${client.firstname}</td>
+							<td>${client.lastname}</td>
+							<td>${client.sex.label}</td>
+							<td>
+								<%-- 
+									fmt:formatDate richiede un parametro Date, non un LocalDate; per questo 
+									motivo, in accordo con la documentazione, ho prima creato una variabile
+									parsedDate di tipo Date con fmt:parseDate e quindi la ho formattata.
+								--%>
+								<fmt:parseDate value="${client.dateOfBirth}" pattern="yyyy-MM-dd" var="parsedDate" type="date"/>
+								<fmt:formatDate pattern="dd/MM/yyyy" value="${parsedDate}"></fmt:formatDate>
+							</td>
+							<td>
+							<fmt:formatNumber type="currency" value="${client.deficit}"></fmt:formatNumber>
+							</td>
+							<td>
+							<fmt:formatNumber type="currency" value="${client.maxTotalDeficit}"></fmt:formatNumber>
+							</td>
+						</tr>				
+					</c:forEach>
+				</tbody>
+			</table>
+		</c:otherwise>
+	</c:choose>
+
+ <br><br><br><a class=btn href="index.jsp"><--- Torna al menù principale</a>
 		
 	<%-- 
 		1. Riguardarsi con calma l'applicazione
@@ -67,6 +96,5 @@
 		Documentazione: https://jakarta.ee/specifications/tags/3.0/tagdocs/c/tld-summary.html
 	 --%>
 	 
-	 <br><br><br><a class=btn href="index.jsp"><--- Torna al menù principale</a>
 </body>
 </html>
