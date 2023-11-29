@@ -1,30 +1,24 @@
+<jsp:include page="/base.jsp"/>
 <%@page import="java.util.Collection"%>
 <%@page import="it.talentform.bank.model.Client"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="jakarta.tags.core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib uri="jakarta.tags.core" prefix="c"%>
+<%@taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt"%>
 
-<!DOCTYPE html>
-<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Lista clienti</title>
-
-<style><%@include file="/WEB-INF/css/style.css"%></style>
-
+	<title>Lista clienti</title>
 </head>
 
 <body>
-
+	<div>
 	<c:choose>
 		<c:when test="${empty ALL_CLIENTS}">
-			<h1>Non ci sono clienti registrati</h1>
+			<h2>Nessuna occorrenza trovata.</h2>
 		</c:when>
 		<c:otherwise>
-			<h1 class=btn>LISTA CLIENTI</h1>
-			<table align="center">
+			<table>
+			<caption class="heading">Lista clienti</caption>
+				
 				<thead>
 				<tr>
 					<th> ID </th>
@@ -36,11 +30,12 @@
 					<th> SCOPERTO<br>UNITARIO </th>
 				</tr>
 				</thead>
+				
 				<tbody>
 				<%--
 					Per capire questo codice è necessario innanzitutto capire cosa
 					sia un bean.
-					E' definita bean una classe che ha gettere e setter per tutte le
+					E' definita bean una classe che ha getter e setter per tutte le
 					proprietà ed un costruttore senza parametri.
 					
 					Molti framework usano questa definizione per ottenere i nomi delle
@@ -54,6 +49,7 @@
 					cercare la funzine client.getId() e chiamarla.
 					 
 				--%>
+				
 					<c:forEach items="${ALL_CLIENTS}" var="client">
 						<tr>
 							<td>${client.id} </td>
@@ -81,8 +77,11 @@
 			</table>
 		</c:otherwise>
 	</c:choose>
-
- <br><br><br><a class=btn href="index.jsp"><--- Torna al menù principale</a>
+ 	</div>
+ 	
+ 	<div class="btnback">
+ 		<a class="menu" id="btnback" href="index.jsp"><--- Torna al menù principale</a>
+ 	</div>
 		
 	<%-- 
 		1. Riguardarsi con calma l'applicazione
@@ -97,4 +96,3 @@
 	 --%>
 	 
 </body>
-</html>

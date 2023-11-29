@@ -25,7 +25,7 @@ public class SaveClientAction implements Action {
 		double maxDeficit = Double.parseDouble(request.getParameter("maxDeficit"));
 		Client c = new Client(firstname, lastname, d, s, maxDeficit, deficit);
 		service.saveClient(c);
-		return "clientsaved.jsp";
+		return "clientSaved.jsp";
 	}
 
 }

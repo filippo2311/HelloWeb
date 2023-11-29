@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<jsp:include page="/base.jsp"/>
+
 <head>
-<meta charset="UTF-8">
-<title>Questo comando non previsto</title>
+	<title>Questo comando non previsto</title>
 </head>
+
 <body>
-	<p>Comando non sopportato</p>
-	<p><a href="index.jsp">Torna alla home page</a></p>
+	<p class="heading">Comando non sopportato</p>
+	
+	<a class="menu" id="btnback" href="index.jsp"><--- Torna al menù principale</a>
 </body>
-</html>

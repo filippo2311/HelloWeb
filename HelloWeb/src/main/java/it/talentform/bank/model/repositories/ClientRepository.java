@@ -3,7 +3,6 @@ package it.talentform.bank.model.repositories;
 import it.talentform.bank.model.Client;
 import it.talentform.bank.model.exceptions.DataException;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public interface ClientRepository {

@@ -14,7 +14,6 @@ public class Client {
     private double deficit;
     public final static int MAX_ACCOUNTS = 5;
     public Client(String firstname, String lastname, LocalDate dateOfBirth, Sex sex, double maxTotalDeficit, double deficit){
-        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.dateOfBirth = dateOfBirth;
@@ -23,7 +22,14 @@ public class Client {
         this.maxTotalDeficit = maxTotalDeficit;
         this.deficit = deficit;
     }
-
+    
+    public Client(long id, String firstname, String lastname, LocalDate dateOfBirth) {
+        this.id = id;
+    	this.firstname = firstname;
+        this.lastname = lastname;
+        this.dateOfBirth = dateOfBirth;
+    }
+    
     public boolean adAccount(Account a){ // questo metodo possiamo utilizzarlo anche per i caymanAccount, perché è
         if (nmAccounts == MAX_ACCOUNTS){ // equivalente, quindi in un array di account ci sta anche CaymanAccount
             return false;                // perché CaymanAccount estende Account quindi dello "stesso" tipo
@@ -115,5 +121,15 @@ public class Client {
 
     public Double getMaxTotalDeficit(){
         return maxTotalDeficit;
+    }  
+    
+    public static void main (String[] args){
+
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("Il driver è presente nel sistema.");
+        }catch (ClassNotFoundException ex){
+            System.err.println("Il driver 'com.mysql.jdbc.Driver' non è presente nel sistema: "+ex.getLocalizedMessage());
+        }
     }
 }

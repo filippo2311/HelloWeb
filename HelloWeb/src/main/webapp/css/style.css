@@ -1,0 +1,294 @@
+@charset "ISO-8859-1";
+
+* {
+	text-align: center;
+ 	font-family: Tahoma, Verdana, sans-serif;
+ 	color: #1f3629;
+ 	box-sizing: border-box;
+ 	margin: auto;
+ }
+ 
+body {
+	background-color: #dce5df;
+}
+
+.btnback {
+	position: relative;
+	margin-top: 2%;
+}
+
+#btnback {
+	width: fit-content;
+	padding: 0.5% 2%;
+	position: absolute;
+	left: 0;
+	right: 0;
+}
+
+#btnconfirm {
+	width: fit-content;
+	margin: 3%;
+	padding: 0.5% 3%;
+}
+
+.heading {
+	margin: 5% auto 2%;
+	padding: 1%;
+	font-weight: 600;
+}
+
+
+/* _______HEADER & BACKGROUND_______ */
+
+header>h1 {
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 4.5vw;
+	color: #e7ddce;
+	text-shadow: 2px 2px 4px black;
+	margin-top: 0%;
+	padding: 1%;
+	background-color: #366a4e;
+}
+
+#logo {
+	width: 10%;
+}
+
+.bg {
+	
+}
+
+#palme {
+	opacity: 0.1;
+	width: 70vw;
+	position: absolute;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    z-index: -1;   
+}
+
+#banca {
+	opacity: 0.1;
+	width: 25vw;
+	position: absolute;
+    bottom: 0.5%;
+    left: 0%;
+    right: 10%;   
+    z-index: -1;
+}
+
+#soldi {
+	opacity: 0.8;
+	width: 15vw;
+	position: absolute;
+    top: 25%;
+    left: -1%;  
+    z-index: -1;
+}
+
+#manette {
+	opacity: 0.7;
+	width: 11vw;
+	position: absolute;
+    top: 23%;
+    right: 0%;  
+    z-index: -1;
+}
+/* _______END header & background_______ */
+
+
+/* _______NAVBAR_______ */
+.nav {
+	width: 100vw;
+	margin-top: -3px;
+	background-color: #cac4b0; 
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+.menu {
+	padding: 0.6%;
+	font-size: 1.2vw;
+	font-weight: bold;
+	color: #1f3629;
+	text-decoration: none;
+	border-radius: 30px;
+	background-color: #cac4b0; 
+	z-index: 1%;
+}
+/* _______END navbar____ */
+
+
+/* _______TABLE_______ */
+table {
+	width: auto;
+	font-size: 1.2vw;
+	border: solid #1f3629;
+	border-collapse: collapse;
+	position: relative;
+	top: 15%;
+	left: 0;
+	right: 0;	
+}
+
+table>caption {
+	padding: 1%;
+	font-weight: 600;
+}
+
+tr:only-of-type {
+	border: solid #1f3629;
+}
+	 	
+th {
+	background-color: #779a85;
+	width: auto;
+	padding: 15px 25px 15px 25px;
+}
+
+td {
+	padding: 10px 25px 10px 25px;
+}
+ 	
+table tr:nth-child(3n-1) { 
+	background-color: #efeee9; 
+}
+	
+table tr:nth-child(3n+0) { 
+	background-color: #b9cbc0; 
+}
+	
+table tr:nth-child(3n+1) { 
+	background-color: #e4e1d7;
+}
+
+/* _______END table_______ */
+	
+	
+/* _______FORMS_______ */
+	
+.form {
+	margin-top: 3%;
+	width: 72vw;
+}
+
+.field {
+	display: inline-flex;
+	float: none;
+	width: 13vw;
+	padding: 0.3%;
+	margin: 2% 3%;
+	border-radius: 10px;
+} 
+	
+/* _______END forms_______ */
+		
+
+@media screen and (max-width: 1024px) {
+	header>h1 {
+		font-size: 6vw;
+	}
+	
+	.nav {
+		padding: 0.8%;
+	}
+	
+	.heading {
+		padding: 0.3%;
+		font-size: 1.7vw;
+		font-weight: bold;
+	}
+	
+	#palme {
+		width: 80vw;
+	}
+
+	#banca {
+		width: 30vw;
+	}
+	
+	#soldi {
+		width: 20vw;
+	}
+	
+	#manette {
+		width: 15vw;
+	}
+	
+	.menu, 
+	#btnback, 
+	#btnconfirm,
+	table {
+		font-size: 1.7vw;
+	}
+	
+	.form {
+		font-size: 1.5vw;
+		margin-top: 15%;
+		width: 50vw;
+	}
+	
+	.field {
+		width: 15vw;
+	}
+}
+
+
+@media screen and (max-width: 600px) {
+		
+	header>h1 {
+		font-size: 8vw;
+		padding: 3%;
+	}
+	
+	.menu {
+		padding: 1%;
+		font-size: 2.4vw;
+	}
+	
+	.heading {
+		margin-bottom: 5%;
+		padding: 0.3%;
+		font-size: 3vw;
+	}
+	
+	#logo {
+		width: 14%;
+	}
+
+	#palme {
+		width: 100vw;
+	}
+
+	#banca {
+		width: 25vw;
+	}
+	
+	#soldi {
+		width: 28%;
+		top: 25%;
+	}
+	
+	#manette {
+		width: 23%;
+		top: 23%;
+	}
+	
+	#btnconfirm,
+	#btnback {
+		padding: 1.5% 4%;
+		font-size: 2.2vw;
+	}
+	
+	.form {
+		margin-top: 35%;
+		font-size: 2.7vw;
+		width: 70vw;
+	}
+	
+	.field {
+		width: 30vw;
+	}
+}
+	
